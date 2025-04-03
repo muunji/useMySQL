@@ -6,3 +6,11 @@ const connection = mysql.createConnection({
   password:'mysqlconnect',
   database:'test'
 })
+
+connection.connect(err=>{
+  if(err){
+    console.error('MySQL 연결 실패:',err)
+    return
+  }
+  console.log('MySQL 연결 성공')
+})
