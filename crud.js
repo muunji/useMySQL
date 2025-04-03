@@ -2,7 +2,9 @@
 const connection = require('./connect.js')
 
 //Create 데이터베이스 생성
-const createDB = () => {}
+const createDB = () => {
+  connection.query('CREATE DATABASE IF NOT EXISTS test',)
+}
 
 //Create 테이블 생성
 const createTable = () => {}
