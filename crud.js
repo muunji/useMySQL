@@ -55,7 +55,17 @@ const getData = () => {
 }
 
 //데이터 수정
-const updateData = (id,newName) => {}
+const updateData = (id,newName) => {
+  const sql = `UPDATE users SET name = ? WHERE id = ?`
+
+  connection.query(sql,[newName,id],(err,results)=>{
+    if(err){
+      console.error('데이터 수정 실패',err)
+      return
+    }
+    console.log('데이터 수정 완료',results.affectedRows,'개의 행이 변경됨')
+  })
+}
 
 //데이터 삭제
 const deleteData = () => {}
