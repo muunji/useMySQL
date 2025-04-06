@@ -15,10 +15,10 @@ const createDB = () => {
 //Create 테이블 생성
 const createTable = () => {
   const sql = `CREATE TABLE IF NOT EXISTS users(
-    id INT AUOT_INCRE<ENT PRIMARY LEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) UNIQUE,
     age INT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     )`;
   
   connection.query(sql,(err,results)=>{
@@ -71,7 +71,7 @@ const updateData = (id,newName) => {
 const deleteData = (id) => {
   const sql = `DELETE FROM users WHERE id = ?`
   
-  connnection.query(sql,[id],(err,results)=>{
+  connection.query(sql,[id],(err,results)=>{
     if(err){
       console.error('데이터 삭제 실패',err)
       return
@@ -79,3 +79,7 @@ const deleteData = (id) => {
     console.log('데이터 삭제 완료',results.affectedRows,'개의 행이 삭제됨')
   })
 }
+
+//DB 생성 & 테이블 생성
+createDB()
+createTable()
