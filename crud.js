@@ -68,4 +68,4 @@ const updateData = (id,newName) => {
 }
 
 //데이터 삭제
-const deleteData = () => {}
+const deleteData = (id) => {}
