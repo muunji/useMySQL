@@ -55,7 +55,7 @@ const getData = () => {
 }
 
 //데이터 수정
-const updateData = () => {}
+const updateData = (id,newName) => {}
 
 //데이터 삭제
 const deleteData = () => {}
