@@ -18,7 +18,13 @@ const createTable = () => {
     age INT
     )`;
   
-    
+  connection.query(sql,(err,results)=>{
+    if(err){
+      console.error('테이블 생성 실패',err)
+      return
+    }
+    console.log('테이블 생성 완료')
+  })
 }
 
 //데이터 추가
