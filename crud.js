@@ -11,7 +11,15 @@ const createDB = () => {
 }
 
 //Create 테이블 생성
-const createTable = () => {}
+const createTable = () => {
+  const sql = `CREATE TABLE IF NOT EXISTS users(
+    id INT AUOT_INCRE<ENT PRIMARY LEY,
+    name VARCHAR(100),
+    age INT
+    )`;
+  
+    
+}
 
 //데이터 추가
 const insertData = () => {}
