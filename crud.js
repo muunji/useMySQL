@@ -44,7 +44,15 @@ const insertData = (name,age) => {
 }
 
 //데이터 조회
-const getData = () => {}
+const getData = () => {
+  connection.query(`SELECT * FROM users`,(err,results)=>{
+    if(err){
+      console.error('데이터 조회 실패',err)
+      return
+    }
+    console.log('조회된 데이터',results)
+  })
+}
 
 //데이터 수정
 const updateData = () => {}
