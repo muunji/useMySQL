@@ -8,7 +8,7 @@ const createDB = () => {
       console.error('DB 생성 실패',err)
       return
     }
-    console.log('DB 생성 완료')
+    console.log('DB 생성 완료',results)
   })
 }
 
@@ -26,7 +26,7 @@ const createTable = () => {
       console.error('테이블 생성 실패',err)
       return
     }
-    console.log('테이블 생성 완료')
+    console.log('테이블 생성 완료',results)
   })
 }
 
@@ -83,3 +83,27 @@ const deleteData = (id) => {
 //DB 생성 & 테이블 생성
 createDB()
 createTable()
+
+//데이터 삽입
+//순서대로 실행하기 위해 setTimeout 사용
+setTimeout(()=>{
+  insertData('minji',26)
+  insertData('kim',29)
+},1000)
+setTimeout(()=>{
+  getData()
+},2000)
+setTimeout(()=>{
+  updateData(1,'MJ')
+},3000)
+setTimeout(()=>{
+  deleteData(2)
+},4000)
+setTimeout(()=>{
+  getData()
+},5000)
+
+//종료
+setTimeout(()=>{
+  connection.end()
+},6000)
