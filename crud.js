@@ -16,8 +16,9 @@ const createDB = () => {
 const createTable = () => {
   const sql = `CREATE TABLE IF NOT EXISTS users(
     id INT AUOT_INCRE<ENT PRIMARY LEY,
-    name VARCHAR(100),
-    age INT
+    name VARCHAR(100) UNIQUE,
+    age INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     )`;
   
   connection.query(sql,(err,results)=>{
@@ -30,7 +31,17 @@ const createTable = () => {
 }
 
 //데이터 추가
-const insertData = (name,age) => {}
+const insertData = (name,age) => {
+  const sql = `INSERT INTO users(name,age) VALUES (?,?)`
+
+  connection.query(sql, [name,age],(err,results)=>{
+    if(err){
+      console.error('데이터 추가 실패',err)
+      return
+    }
+    console.log('데이터 추가 완료',results.insertId)
+  })
+}
 
 //데이터 조회
 const getData = () => {}
