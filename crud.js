@@ -30,7 +30,7 @@ const createTable = () => {
 }
 
 //데이터 추가
-const insertData = () => {}
+const insertData = (name,age) => {}
 
 //데이터 조회
 const getData = () => {}
