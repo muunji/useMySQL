@@ -68,4 +68,14 @@ const updateData = (id,newName) => {
 }
 
 //데이터 삭제
-const deleteData = (id) => {}
+const deleteData = (id) => {
+  const sql = `DELETE FROM users WHERE id = ?`
+  
+  connnection.query(sql,[id],(err,results)=>{
+    if(err){
+      console.error('데이터 삭제 실패',err)
+      return
+    }
+    console.log('데이터 삭제 완료',results.affectedRows,'개의 행이 삭제됨')
+  })
+}
