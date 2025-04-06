@@ -6,7 +6,9 @@ const createDB = () => {
   connection.query('CREATE DATABASE IF NOT EXISTS test',(err,results)=>{
     if(err){
       console.error('DB 생성 실패',err)
+      return
     }
+    console.log('DB 생성 완료')
   })
 }
 
