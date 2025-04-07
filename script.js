@@ -1,13 +1,13 @@
 //제출 이벤트
-document.getElementsByTagName('button')[0].addEventListener('submit',(e)=>{
+document.getElementsByTagName('button')[0].addEventListener('click',(e)=>{
   //기본 동작 방지
   e.preventDefault()
 
   //입력값 가져오기
-  const name = e.target.name.value.trim()
-  const age = e.target.age.value.trim()
-  const email = e.target.email.value.trim()
-  const password = e.target.password.value.trim()
+  const name = document.querySelector('input[name="name"]').value.trim()
+  const age = document.querySelector('input[name="age"]').value.trim()
+  const email = document.querySelector('input[type="email"]').value.trim()
+  const password = document.querySelector('input[type="password"]').value.trim()
 
   //유효성 검사
   const emailReget = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -21,6 +21,6 @@ document.getElementsByTagName('button')[0].addEventListener('submit',(e)=>{
   console.log('전송할 데이터',JSON.stringify(data))
 
   //input 값 초기화
-  e.target.reset()
+  // e.target.reset()
   console.log('완료')
 })
