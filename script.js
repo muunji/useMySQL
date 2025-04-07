@@ -1,3 +1,5 @@
+//클래스로 유효성 검사 시도
+
 //제출 이벤트
 document.getElementsByTagName('button')[0].addEventListener('click',(e)=>{
   //기본 동작 방지
