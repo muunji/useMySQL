@@ -10,6 +10,12 @@ document.getElementsByTagName('button')[0].addEventListener('submit',(e)=>{
   const password = e.target.password.value.trim()
 
   //유효성 검사
+  const emailReget = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  if(!emailReget.test(email)){
+    alert('이메일 형식이 아닙니다.')
+    return
+  }
+  
 
   //console로 전송 시뮬레이션
 
