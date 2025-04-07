@@ -16,8 +16,11 @@ document.getElementsByTagName('button')[0].addEventListener('submit',(e)=>{
     return
   }
   
-
   //console로 전송 시뮬레이션
+  const data = {name, age: Number(age), email, password}
+  console.log('전송할 데이터',JSON.stringify(data))
 
   //input 값 초기화
+  e.target.reset()
+  console.log('완료')
 })
