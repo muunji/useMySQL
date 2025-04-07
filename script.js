@@ -61,8 +61,13 @@ document.getElementsByTagName('button')[0].addEventListener('click',(e)=>{
   const password = document.querySelector('input[type="password"]').value.trim()
   
   //console로 전송 시뮬레이션
-  const data = new Validator(name, age, email, password)
-  console.log('전송할 데이터',JSON.stringify(data))
+  try{
+    const data = new Validator(name, age, email, password)
+    console.log('전송할 데이터',JSON.stringify(data))
+  } catch(err){
+    alert(err.message)
+    return
+  }
 
   //input 값 초기화
   // e.target.reset()
