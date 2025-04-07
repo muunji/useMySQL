@@ -1,4 +1,56 @@
 //클래스로 유효성 검사 시도
+class Validator{
+  constructor(name, age, email, password){
+    this.name = name
+    this.age = age
+    this.email = email
+    this.password = password
+  }
+  
+  set name(name){
+    this._name = name
+  }
+
+  get name(){
+    return this._name
+  }
+
+  set age(age){
+    if(isNaN(age) || Number(age)<= 0){
+      alert('나이는 숫자로 입력')
+      return
+    }
+    this._age = age
+  }
+  get age(){
+    return this._age
+  }
+
+  set email(email){
+    const emailReget = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if(!emailReget.test(email)){
+      alert('이메일 형식이 아닙니다.')
+      return
+    }
+    this._email = email
+  }
+
+  get email(){
+    return this._email
+  }
+
+  set password(password){
+    if(password.length < 8){
+      alert('비밀번호는 8자 이상')
+      return
+    }
+    this._password = password
+  }
+
+  get password(){
+    return this._password
+  }
+}
 
 //제출 이벤트
 document.getElementsByTagName('button')[0].addEventListener('click',(e)=>{
