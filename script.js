@@ -62,16 +62,9 @@ document.getElementsByTagName('button')[0].addEventListener('click',(e)=>{
   const age = document.querySelector('input[name="age"]').value.trim()
   const email = document.querySelector('input[type="email"]').value.trim()
   const password = document.querySelector('input[type="password"]').value.trim()
-
-  //유효성 검사
-  const emailReget = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  if(!emailReget.test(email)){
-    alert('이메일 형식이 아닙니다.')
-    return
-  }
   
   //console로 전송 시뮬레이션
-  const data = {name, age: Number(age), email, password}
+  const data = new Validator(name, age, email, password)
   console.log('전송할 데이터',JSON.stringify(data))
 
   //input 값 초기화
