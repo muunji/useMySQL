@@ -17,8 +17,7 @@ class Validator{
 
   set age(age){
     if(isNaN(age) || Number(age)<= 0){
-      alert('나이는 숫자로 입력')
-      return
+      throw new Error('올바른 나이를 입력하세요.')
     }
     this._age = age
   }
@@ -29,8 +28,7 @@ class Validator{
   set email(email){
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if(!emailRegex.test(email)){
-      alert('이메일 형식이 아닙니다.')
-      return
+      throw new Error('올바른 이메일 주소를 입력하세요.')
     }
     this._email = email
   }
@@ -41,8 +39,7 @@ class Validator{
 
   set password(password){
     if(password.length < 8){
-      alert('비밀번호는 8자 이상')
-      return
+      throw new Error('비밀번호는 최소 8자 이상이어야 합니다.')
     }
     this._password = password
   }
