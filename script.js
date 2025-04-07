@@ -27,8 +27,8 @@ class Validator{
   }
 
   set email(email){
-    const emailReget = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if(!emailReget.test(email)){
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if(!emailRegex.test(email)){
       alert('이메일 형식이 아닙니다.')
       return
     }
