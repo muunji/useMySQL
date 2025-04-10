@@ -5,7 +5,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.__dirname(__filename)
+const __dirname = path.dirname(__filename)
 
 const app = express()
 
@@ -14,3 +14,6 @@ app.use(express.json())
 
 //파일 설정
 app.use(express.static(path.join(__dirname,'public')))
+
+//서버 실행
+app.listen(3010,()=>{console.log('app : http://localhost:3010')})
