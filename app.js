@@ -13,4 +13,4 @@ app.use(cors())
 app.use(express.json())
 
 //파일 설정
-app.use(express.static())
+app.use(express.static(path.join(__dirname,'public')))
