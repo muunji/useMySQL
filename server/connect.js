@@ -15,9 +15,9 @@ const connection = mysql.createPool({
 })
 
 //연결하기
-connection.connect(err=>{
+connection.getConnection(err=>{
   if(err){
-    console.err('MySQL 연결 실패',err)
+    console.error('MySQL 연결 실패',err)
     return
   }
   console.log('MySQL 연결 성공')
