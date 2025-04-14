@@ -1,12 +1,12 @@
 import express from 'express'
-import mysql from 'mysql2'
+// import mysql from 'mysql2'
 import cors from 'cors'
 import path from 'path'
 import { fileURLToPath } from 'url'
 //pool
 import pool from './server/connect.js'
 //DB 함수 
-import { createDB, createTable } from './server/create.js'
+import { createTable } from './server/create.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -20,7 +20,7 @@ app.use(express.json())
 app.use(express.static(path.join(__dirname,'public')))
 
 //*DB , Table 생성
-createDB()
+// createDB()
 createTable()
 
 //* DB 서버 테스트
