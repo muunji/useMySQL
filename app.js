@@ -15,5 +15,10 @@ app.use(express.json())
 //파일 설정
 app.use(express.static(path.join(__dirname,'public')))
 
+//* DB 서버 테스트
+app.get('/check',(req,res)=>{
+  //조회 쿼리 작성
+})
+
 //서버 실행
 app.listen(3010,()=>{console.log('app : http://localhost:3010')})
