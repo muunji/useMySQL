@@ -2,7 +2,12 @@
 import connect from './connect.js'
 
 //DB 생성
-const createDB = () => {}
+const createDB = () => {
+  connect.execute('CREATE DATABASE IF NOT EXISTS express',(err)=>{
+    if(err) return console.error('DB 생성 실패:',err)
+    console.log('DB 생성 완료')
+  })
+}
 
 //table 생성
 const createTable = () => {}
