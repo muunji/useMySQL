@@ -1,10 +1,10 @@
 //필요한 모듈 가져오기
 import mysql from 'mysql2'
-import pool from 'pool'
+// import pool from 'pool'
 import dotenv from 'dotenv'
 dotenv.config()
 
-const connection = mysql.createPool({
+const pool = mysql.createPool({
   host:'localhost',
   user:'root',
   password: process.env.PASSWORD,
@@ -15,7 +15,7 @@ const connection = mysql.createPool({
 })
 
 //연결하기
-connection.getConnection(err=>{
+pool.getConnection(err=>{
   if(err){
     console.error('MySQL 연결 실패',err)
     return
@@ -24,4 +24,4 @@ connection.getConnection(err=>{
 })
 
 //내보내기
-export default connection
+export default pool
