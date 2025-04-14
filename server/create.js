@@ -12,7 +12,12 @@ const createDB = () => {
 //table 생성
 const createTable = () => {
   //DB 사용 쿼리
+  const useDB = `USE express`
   //DB 생성 쿼리
+  const makeTable = `CREATE TABLE IF NOT EXISTS text(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    text VARCHAR(255) NOT NULL
+  )`
 
   //쿼리 사용
 }
