@@ -10,4 +10,9 @@ const createDB = () => {
 }
 
 //table 생성
-const createTable = () => {}
+const createTable = () => {
+  //DB 사용 쿼리
+  //DB 생성 쿼리
+
+  //쿼리 사용
+}
