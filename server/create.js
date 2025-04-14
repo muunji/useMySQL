@@ -20,10 +20,10 @@ const createTable = () => {
   );`
 
   //쿼리 사용
-  connect.execute(useDB,(err)=>{
+  connect.query(useDB,(err)=>{
     if(err) return console.error('DB 선택 실패:',err)
 
-    connect.execute(makeTable,(err)=>{
+    connect.query(makeTable,(err)=>{
       if(err) return console.error('테이블 생성 실패:',err)
       console.log('테이블 생성 완료')
     })
