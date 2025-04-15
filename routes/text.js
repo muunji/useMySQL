@@ -52,5 +52,14 @@ router.put('/:id',(req,res)=>{
 })
 
 //DELETE = 사용자 삭제
+router.delete('/:id',(req,res)=>{
+  let id = req.params.id
+
+  //쿼리문 사용
+  pool.execute(`DELETE FROM test WHERE id=?`,[id],(err,results)=>{
+    if(err) return res.status(500).json({message:'DB 삭제 실패',error:err})
+    res.json(results)
+  })
+})
 
 //내보내기
