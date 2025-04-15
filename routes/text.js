@@ -1,4 +1,6 @@
 //모듈 가져오기
+import express from 'express'
+import pool from '../server/connect.js'
 
 //GET - 사용자 전체 조회
 
