@@ -26,7 +26,20 @@ app.use(express.static(path.join(__dirname,'public')))
 
 //* DB 서버 테스트
 //* 라우터 사용
+import DBRouter from './routes/text.js'
+app.use('/connect',DBRouter)
+
+//* DB 직접 조회
 app.get('/check',(req,res)=>{
+  //조회 쿼리 작성
+  pool.execute(`SELECT * FROM test`,(err,results)=>{
+    if(err){
+      console.error('DB 조회 에러',err)
+      return res.status(500).json({error:'DB 오류'})
+    }
+    //오류 없으면
+    res.json(results)
+  })
 })
 
 //서버 실행
