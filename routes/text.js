@@ -22,7 +22,7 @@ router.post('/',(req,res)=>{
   if(!text) return res.status(400).json({error:'내용이 필요합니다'})
   //쿼리문 사용
   pool.execute(`INSERT INTO test (text) VALUES (?)`,[text],(err,results)=>{
-    if(err) return res.status(500).json('DB 추가 안됨',err)
+    if(err) return res.status(500).json({message:'DB 추가 실패',error:err})
     res.json(results)
   })
 })
