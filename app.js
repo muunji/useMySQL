@@ -7,7 +7,7 @@ import { fileURLToPath } from 'url'
 import pool from './server/connect.js'
 // import { createTable } from './server/create.js'
 //DB 함수 
-// import { createDB,createTable } from './server/create.js'
+import { createDB,createTable } from './server/create.js'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
@@ -21,7 +21,7 @@ app.use(express.json())
 app.use(express.static(path.join(__dirname,'public')))
 
 //*DB , Table 생성
-// createDB(createTable())
+createDB(createTable())
 // createTable()
 
 //* DB 서버 테스트
