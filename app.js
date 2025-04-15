@@ -34,7 +34,7 @@ app.get('/check',(req,res)=>{
   //조회 쿼리 작성
   pool.execute(`SELECT * FROM test`,(err,results)=>{
     if(err){
-      console.error('DB 조회 에러',err)
+      console.error('check경로 - DB 조회 에러',err)
       return res.status(500).json({error:'DB 오류'})
     }
     //오류 없으면
