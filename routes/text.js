@@ -45,7 +45,10 @@ router.put('/:id',(req,res)=>{
   if(!text) return res.status(400).json({error:'내용이 필요합니다'})
 
   //쿼리문 사용
-  pool.execute()
+  pool.execute(`UPDATE test SET text=? WHERE id=?`,[text,id],(err,results)=>{
+    if(err) return res.status(500).json({message:'DB 수정 실패',error:err})
+    res.json(results)
+  })
 })
 
 //DELETE = 사용자 삭제
