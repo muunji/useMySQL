@@ -19,6 +19,7 @@ router.post('/',(req,res)=>{
   // 요청 데이터
   const {text} = req.body
   //값이 없으면 에러 처리
+  if(!text) return res.status(400).json({error:'내용이 필요합니다'})
   //쿼리문 사용
   pool.execute(`INSERT INTO test (text) VALUES (?)`,[text],(err,results)=>{
     if(err) return res.status(500).json('DB 추가 안됨',err)
