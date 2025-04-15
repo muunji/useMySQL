@@ -63,3 +63,4 @@ router.delete('/:id',(req,res)=>{
 })
 
 //내보내기
+export default router
