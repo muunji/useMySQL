@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname,'public')))
 //* DB 서버 테스트
 app.get('/check',(req,res)=>{
   //조회 쿼리 작성
-  pool.execute(`SELECT * FROM text`,(err,results)=>{
+  pool.execute(`SELECT * FROM test`,(err,results)=>{
     if(err){
       console.error('DB 조회 에러',err)
       return res.status(500).json({error:'DB 오류'})
