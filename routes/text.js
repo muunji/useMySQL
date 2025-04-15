@@ -15,6 +15,13 @@ router.get('/',(req,res)=>{
 })
 
 //POST - 사용자 추가
+router.post('/',(req,res)=>{
+  //쿼리문 사용
+  pool.execute(`INSERT INTO test (text) VALUES (?)`,[text],(err,results)=>{
+    if(err) return res.status(500).json('DB 추가 안됨',err)
+    res.json(results)
+  })
+})
 
 //PUT - 사용자 수정
 
