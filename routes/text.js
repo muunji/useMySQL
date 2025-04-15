@@ -6,6 +6,13 @@ import pool from '../server/connect.js'
 const router = express.Router()
 
 //GET - 사용자 전체 조회
+router.get('/',(req,res)=>{
+  //쿼리문 사용
+  pool.execute(`SELECT * FROM test`,(err,results)=>{
+    if(err) return res.status(500).json('DB 조회 실패',err)
+    res.json(results)
+  })
+})
 
 //POST - 사용자 추가
 
