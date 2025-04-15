@@ -33,6 +33,20 @@ router.post('/',(req,res)=>{
 })
 
 //PUT - 사용자 수정
+router.put('/:id',(req,res)=>{
+
+  //id가져옴
+  const id = req.params.id
+
+  //수정할 데이터
+  const {text} = req.body
+
+  //데이터 없으면 에러
+  if(!text) return res.status(400).json({error:'내용이 필요합니다'})
+
+  //쿼리문 사용
+  pool.execute()
+})
 
 //DELETE = 사용자 삭제
 
