@@ -5,6 +5,11 @@ import pool from '../server/connect.js'
 //라우터 설정
 const router = express.Router()
 
+//body 받기 위한 미들웨어 설정
+const app = express()
+app.use(express.json())
+app.use(express.urlencoded({extended:true})) //form태그 데이터 받기 위한 미들웨어
+
 //GET - 사용자 전체 조회
 router.get('/',(req,res)=>{
   //쿼리문 사용
