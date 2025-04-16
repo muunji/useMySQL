@@ -17,11 +17,11 @@ router.get('/',(req,res)=>{
 //POST - 사용자 추가
 router.post('/',(req,res)=>{
   // 요청 데이터
-  const {text} = req.body
+  const {text,password} = req.body
   //값이 없으면 에러 처리
   if(!text) return res.status(400).json({error:'내용이 필요합니다'})
   //쿼리문 사용
-  pool.execute(`INSERT INTO test (text) VALUES (?)`,[text],(err,results)=>{
+  pool.execute(`INSERT INTO test (text,password) VALUES (?)`,[text,password],(err,results)=>{
     if(err) return res.status(500).json({message:'DB 추가 실패',error:err})
     res.json(results)
   })
@@ -34,13 +34,13 @@ router.put('/:id',(req,res)=>{
   const id = req.params.id
 
   //수정할 데이터
-  const {text} = req.body
+  const {text,password} = req.body
 
   //데이터 없으면 에러
   if(!text) return res.status(400).json({error:'내용이 필요합니다'})
 
   //쿼리문 사용
-  pool.execute(`UPDATE test SET text=? WHERE id=?`,[text,id],(err,results)=>{
+  pool.execute(`UPDATE test SET text=? password=? WHERE id=?`,[text,password,id],(err,results)=>{
     if(err) return res.status(500).json({message:'DB 수정 실패',error:err})
     res.json(results)
   })
