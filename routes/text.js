@@ -21,7 +21,7 @@ router.post('/',(req,res)=>{
   //값이 없으면 에러 처리
   if(!text) return res.status(400).json({error:'내용이 필요합니다'})
   //쿼리문 사용
-  pool.execute(`INSERT INTO test (text,password) VALUES (?)`,[text,password],(err,results)=>{
+  pool.execute(`INSERT INTO test (text,password) VALUES (?,?)`,[text,password],(err,results)=>{
     if(err) return res.status(500).json({message:'DB 추가 실패',error:err})
     res.json(results)
   })
