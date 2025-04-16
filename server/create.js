@@ -18,7 +18,8 @@ const createTable = () => {
   //DB 생성 쿼리
   const makeTable = `CREATE TABLE IF NOT EXISTS test(
     id INT AUTO_INCREMENT PRIMARY KEY,
-    text VARCHAR(255) NOT NULL
+    text VARCHAR(255) NOT NULL,
+    password VARCHAR(225) NOT NULL
   );`
 
   //쿼리 사용
