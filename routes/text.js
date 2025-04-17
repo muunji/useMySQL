@@ -18,7 +18,8 @@ router.get('/',(req,res)=>{
 })
 
 //POST - 사용자 추가
-router.post('/',(req,res)=>{
+//bcrypt.hash => 비밀번호 해시화
+router.post('/',async (req,res)=>{
   // 요청 데이터
   const {text,password} = req.body
   //값이 없으면 에러 처리
