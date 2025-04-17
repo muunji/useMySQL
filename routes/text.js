@@ -2,6 +2,9 @@
 import express from 'express'
 import pool from '../server/connect.js'
 
+//암호화 모듈
+import bcrypt from 'bcrypt'
+
 //라우터 설정
 const router = express.Router()
 
