@@ -9,7 +9,14 @@ import bcrypt from 'bcrypt'
 const router = express.Router()
 
 //GET - 사용자 전체 조회
-router.get('/',(req,res)=>{
+//조회할 때 비밀번호 제외
+router.get('/',async(req,res)=>{
+  try{
+
+  }
+  catch(err){
+    
+  }
   //쿼리문 사용
   pool.execute(`SELECT * FROM test`,(err,results)=>{
     if(err) return res.status(500).json('DB 조회 실패',err)
