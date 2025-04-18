@@ -13,5 +13,7 @@ app.use(express.urlencoded({extended:true}))
 createDB(createTable())
 
 //라우터 사용
+import DBRouter from './routes/text.js'
+app.use('/',DBRouter)
 
 //서버 실행
