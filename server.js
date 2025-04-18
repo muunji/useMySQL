@@ -4,6 +4,10 @@ import cors from 'cors'
 import {createDB, createTable} from './server/create.js'
 
 //express 설정
+const app = express()
+app.use(cors())
+app.use(express.json())
+app.use(express.urlencoded({extended:true}))
 
 //DB 함수 실행
 
