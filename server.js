@@ -17,3 +17,6 @@ import DBRouter from './routes/text.js'
 app.use('/',DBRouter)
 
 //서버 실행
+app.listen('8080',()=>{
+  console.log('server : http://localhost:8080')
+})
