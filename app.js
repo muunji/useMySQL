@@ -16,5 +16,7 @@ app.use(express.urlencoded({extended:true}))
 //파일 설정
 app.use(express.static(path.join(__dirname,'public')))
 
+// form /connect - db (POST - localhost:8080)
+
 //서버 실행
 app.listen(3010,()=>{console.log('app : http://localhost:3010')})
