@@ -17,6 +17,15 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.static(path.join(__dirname,'public')))
 
 // form /connect - db (POST - localhost:8080)
+app.post('/connect',async (req,res)=>{
+  try{
+    const data = await fetch('http:localhost:8080')
+    console.log(data)
+  }
+  catch(err){
+
+  }
+})
 
 //서버 실행
 app.listen(3010,()=>{console.log('app : http://localhost:3010')})
