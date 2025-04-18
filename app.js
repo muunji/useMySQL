@@ -20,7 +20,10 @@ app.use(express.static(path.join(__dirname,'public')))
 app.post('/connect',async (req,res)=>{
   const {text, password}=req.body
   try{
-    const response = await fetch('http:localhost:8080')
+    const response = await fetch('http:localhost:8080',{
+      method:'POST',
+      body:{text,password}
+    })
 
   }
   catch(err){
