@@ -22,7 +22,10 @@ app.post('/connect',async (req,res)=>{
   try{
     const response = await fetch('http:localhost:8080',{
       method:'POST',
-      body:{text,password}
+      body: JSON.stringify({text,password}),
+      headers:{
+        'Content-Type':'application/json'
+      }
     })
 
   }
