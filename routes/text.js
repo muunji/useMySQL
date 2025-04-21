@@ -22,18 +22,29 @@ router.get('/',(req,res)=>{
 
 //POST - 사용자 추가
 //bcrypt.hash => 비밀번호 해시화
-router.post('/',async (req,res)=>{
+router.post('/', (req,res)=>{
   // 요청 데이터
   const {text,password} = req.body
   //값이 없으면 에러 처리
   if(!text) return res.status(400).json({error:'내용이 필요합니다'})
   if(!password) return res.status(400).json({error:'비밀번호 필요합니다'})
 
-  try{
-    //해시화
-    const hashPassword = await bcrypt.hash(password,10)
+  //해시화
+  bcrypt.hash(password,10,(err,hashPassword)=>{
+    // 에러
+    if(err) {
+      console.error('비밀번호 해시화 실패',err)
+      return res.status(500).json({message:'비밀번호 해시화 실패',error:err})
+    }
+
     //쿼리문 사용
     pool.execute(`INSERT INTO test (text,password) VALUES (?,?)`,[text,hashPassword])
+  })
+
+  try{
+    //해시화
+    const hashPassword = bcrypt.hash(password,10)
+    //쿼리문 사용
     res.json({message:'비밀번호 추가 완료'})
   }
   catch(err){
