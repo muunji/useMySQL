@@ -13,7 +13,8 @@ const router = express.Router()
 router.get('/',(req,res)=>{
   pool.execute(`SELECT id, text FROM test`,(err,results)=>{
     if(err){
-
+      console.error('조회실패',err)
+      return res.status(500).json({message:'DB 조회 실패',error:err})
     }
     res.json(results)
   })
