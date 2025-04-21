@@ -28,6 +28,8 @@ app.post('/connect',async (req,res)=>{
       }
     })
 
+    // 실패했을 때 catch로 전달
+
   }
   catch(err){
 
