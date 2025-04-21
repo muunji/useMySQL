@@ -16,7 +16,8 @@ router.get('/',async(req,res)=>{
     res.json(rows)
   }
   catch(err){
-    res.status(500).json({error:'조회실패',detail:err})
+    console.error('조회 실패',err)
+    // res.status(500).json({error:'조회실패',detail:err})
   }
 })
 
