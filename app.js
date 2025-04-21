@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname,'public')))
 app.post('/connect',async (req,res)=>{
   const {text, password}=req.body
   try{
-    const response = await fetch('http:localhost:8080',{
+    const response = await fetch('http://localhost:8080',{
       method:'POST',
       body: JSON.stringify({text,password}),
       headers:{
@@ -28,11 +28,18 @@ app.post('/connect',async (req,res)=>{
       }
     })
 
+    const data = response.json()
+    
     // 실패했을 때 catch로 전달
+    if(!response.ok) throw new Error('DB 추가 실패')
+
+    //성공했을 때 - / 페이지로 이동
+    res.redirect('/')
 
   }
   catch(err){
-
+    console.error('DB 추가 실패',err)
+    res.status(500).json({message:'DB 추가 실패',error:err})
   }
 })
 
