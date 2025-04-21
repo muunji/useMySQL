@@ -10,9 +10,9 @@ const router = express.Router()
 
 //GET - 사용자 전체 조회
 //조회할 때 비밀번호 제외
-router.get('/',async(req,res)=>{
+router.get('/',(req,res)=>{
   try{
-    const [rows] = await pool.execute(`SELECT id, text FROM test`)
+    const [rows] = pool.execute(`SELECT id, text FROM test`)
     res.json(rows)
   }
   catch(err){
