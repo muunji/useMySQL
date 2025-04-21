@@ -38,7 +38,16 @@ router.post('/', (req,res)=>{
     }
 
     //쿼리문 사용
-    pool.execute(`INSERT INTO test (text,password) VALUES (?,?)`,[text,hashPassword])
+    pool.execute(`INSERT INTO test (text,password) VALUES (?,?)`,[text,hashPassword],(err,results)=>{
+      //에러
+      if(err){
+        console.error('DB 추가 실패',err)
+        return res.status(500).json({message:'DB 추가 실패',error:err})
+      }
+
+      //성공
+      res.json({message:'DB 추가 성공',id:results.insertId})
+    })
   })
 
   try{
