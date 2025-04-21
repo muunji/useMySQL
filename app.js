@@ -44,7 +44,7 @@ app.post('/connect',async (req,res)=>{
 
     //성공했을 때 - / 페이지로 이동
     console.log('6. 리다이렉트 실행');
-    return res.redirect('/')
+    res.redirect('/')
 
   }
   catch(err){
