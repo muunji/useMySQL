@@ -49,16 +49,6 @@ router.post('/', (req,res)=>{
       res.json({message:'DB 추가 성공',id:results.insertId})
     })
   })
-
-  try{
-    //해시화
-    const hashPassword = bcrypt.hash(password,10)
-    //쿼리문 사용
-    res.json({message:'비밀번호 추가 완료'})
-  }
-  catch(err){
-    return res.status(500).json({message:'DB 추가 실패',error:err})
-  }
 })
 
 //PUT - 사용자 수정
