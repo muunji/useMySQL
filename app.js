@@ -18,8 +18,10 @@ app.use(express.static(path.join(__dirname,'public')))
 
 // form /connect - db (POST - localhost:8080)
 app.post('/connect',async (req,res)=>{
+  console.log('1. 요청 확인',req.body)
   const {text, password}=req.body
   try{
+    console.log('2. 요청 전송 시도')
     const response = await fetch('http://localhost:8080',{
       method:'POST',
       body: JSON.stringify({text,password}),
@@ -28,12 +30,20 @@ app.post('/connect',async (req,res)=>{
       }
     })
 
+    console.log('3. fetch 응답 받음:', response.status);
+
     const data = await response.json()
+
+    console.log('4. 응답 데이터 파싱 완료:', data);
     
     // 실패했을 때 catch로 전달
-    if(!response.ok) throw new Error('DB 추가 실패')
+    if(!response.ok) {
+      console.log('5. 오류 응답 반환');
+      throw new Error('DB 추가 실패')
+    }
 
     //성공했을 때 - / 페이지로 이동
+    console.log('6. 리다이렉트 실행');
     return res.redirect('/')
 
   }
