@@ -28,7 +28,7 @@ app.post('/connect',async (req,res)=>{
       }
     })
 
-    const data = response.json()
+    const data = await response.json()
     
     // 실패했을 때 catch로 전달
     if(!response.ok) throw new Error('DB 추가 실패')
