@@ -10,7 +10,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 
 //DB 함수 실행
-createDB(createTable())
+createDB(createTable)
 
 //라우터 사용
 import DBRouter from './routes/text.js'
