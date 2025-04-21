@@ -34,7 +34,7 @@ app.post('/connect',async (req,res)=>{
     if(!response.ok) throw new Error('DB 추가 실패')
 
     //성공했을 때 - / 페이지로 이동
-    res.redirect('/')
+    return res.redirect('/')
 
   }
   catch(err){
