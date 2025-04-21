@@ -8,7 +8,7 @@ const pool = mysql.createPool({
   host:'localhost',
   user:'root',
   password: process.env.PASSWORD,
-  // database:'express',
+  database:'express',
   port: '3306',
   waitForConnections: true,
   connectionLimit:10, //최대 10개 연결 유지
