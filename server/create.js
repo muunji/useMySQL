@@ -8,7 +8,7 @@ const createDB = (callback) => {
     console.log('DB 생성 완료')
   })
 
-  callback
+  callback()
 }
 
 //table 생성
