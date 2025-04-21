@@ -11,14 +11,12 @@ const router = express.Router()
 //GET - 사용자 전체 조회
 //조회할 때 비밀번호 제외
 router.get('/',(req,res)=>{
-  try{
-    const [rows] = pool.execute(`SELECT id, text FROM test`)
-    res.json(rows)
-  }
-  catch(err){
-    console.error('조회 실패',err)
-    // res.status(500).json({error:'조회실패',detail:err})
-  }
+  pool.execute(`SELECT id, text FROM test`,(err,results)=>{
+    if(err){
+
+    }
+    res.json(results)
+  })
 })
 
 //POST - 사용자 추가
