@@ -8,9 +8,12 @@ import bcrypt from 'bcrypt'
 //라우터 설정
 const router = express.Router()
 
+//로그인 토큰
+import { verifyToken } from '../middlewares/verifyToken.js'
+
 //GET - 사용자 전체 조회
 //조회할 때 비밀번호 제외
-router.get('/',(req,res)=>{
+router.get('/',verifyToken,(req,res)=>{
   pool.execute(`SELECT id, text FROM test`,(err,results)=>{
     if(err){
       console.error('조회실패',err)
