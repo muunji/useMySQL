@@ -16,5 +16,13 @@ export function verifyToken(req,res,next){
   //Bearer 토큰 : 형식
   const token = authHeader.split(' ')[1]
   
-  //토큰 검증
+  try{
+    //토큰 검증
+    const decoded = jwt.verify(token, process.env.JWT_SECRET)
+    req.uesr = decoded //디코딩된 정보 요청에 담기
+    next()
+  }
+  catch(err){
+    return res.status(403).json({message:'유효하지 않은 토큰',error:err})
+  }
 }
