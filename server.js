@@ -3,6 +3,10 @@ import express from 'express'
 import cors from 'cors'
 import {createDB, createTable} from './server/create.js'
 
+//로그인 라우터 추가
+import authRouter from './routes/auth.js'
+app.use('/auth',authRouter)
+
 //express 설정
 const app = express()
 app.use(cors())
