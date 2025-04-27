@@ -13,6 +13,8 @@ export function verifyToken(req,res,next){
   }
   
   //토큰만 추출
+  //Bearer 토큰 : 형식
+  const token = authHeader.split(' ')[1]
   
   //토큰 검증
 }
